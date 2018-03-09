@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
+<head th:fragment="head" >
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title th:text="${title}"></titleth:text> Events </title>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+
 </head>
 <body>
+
+<nav th:fragment="navigation">
+    <a href="/events"> List of Events</a>
+    <a href="/events/add">Add New Event</a>
+</nav>
 
 </body>
 </html>
