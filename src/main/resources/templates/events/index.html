@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Title</title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+
+<p th:unless="${events} and ${events.size()}">No Scheduled Events</p>
+
+<a href="/events/add"> Add Event</a>
+
+<ul>
+    <li th:each="events : ${events}" th:text="${events}"></li>
+
+</ul>
+</body>
+</html>
