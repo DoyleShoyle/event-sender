@@ -6,15 +6,28 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post" style="max-width:600px;">
+<form method="post" style="max-width:600px;" th:object="${event}">
     <div class="form-group">
-        <label for="name-field">Name of Event</label>
-        <input class="form-control" id="name-field" type="text" name="name" />
+        <label th:for="name">Name of Event</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
     </div>
     <div class="form-group">
-        <label for="desc-field">Event Description</label>
-        <input class="form-control" id="desc-field" type="text" name="description" />
+        <label th:for="description">Event Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
     </div>
+
+    <div class="form-group">
+        <label th:for="type">Type of Event</label>
+        <select th:field="*{type}">
+            <option th:each="eventType : ${eventTypes}"
+                    th:text="${eventType.name}"
+                    th:value="${eventType}"></option>
+        </select>
+
+    </div>
+
     <input type="submit" value="Add event" />
 </form>
 

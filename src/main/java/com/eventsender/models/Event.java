@@ -10,30 +10,32 @@ import javax.validation.constraints.Size;
  * Created by Brian Doyle
  */
 
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
+    private int id;
+
+    @NotNull
+    @Size(min=3, max=40, message = "Please enter an Event Name")
     private String name;
+
+    @NotNull
+    @Size(min=1, message = "Please enter a Description")
     private String description;
-    private int eventId;
-    private static int nextId = 1;
+
+    private EventType type;
 
     public Event(String name, String description) {
-        this();
         this.name = name;
         this.description = description;
     }
 
-    public Event() {
-        eventId = nextId;
-        nextId++;
-    }
+    public Event() { }
 
-    public int getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -50,5 +52,13 @@ public class Event {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 }
