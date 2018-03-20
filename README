@@ -1,0 +1,2 @@
+This Project allows a User to Create uniqiue Events with a Name Descriotion and type. My goal is to add the Twilio API in order to allow 
+users to send the Event information to a selected list of phone numbers via SMS.
